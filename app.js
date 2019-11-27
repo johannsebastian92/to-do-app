@@ -24,12 +24,11 @@ function onReady() {
       TODO_LIST.removeChild(this.parentElement);
     }
   )
-    // Creates a new li
-    newLi.textContent = title;
-    newLi.appendChild(checkbox);
+    newLi.textContent = title; // Creates a new li
+    newLi.appendChild(checkbox); // Attach checkbox to li
     newLi.appendChild(deleteBtn);
-    TODO_LIST.appendChild(newLi);
-    NEW_TODO_TEXT.value = "";
+    TODO_LIST.appendChild(newLi); //Attach the li to ul
+    NEW_TODO_TEXT.value = ""; // Empty the input after submit
   });
 };
 
