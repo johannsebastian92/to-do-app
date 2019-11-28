@@ -1,0 +1,24 @@
+h1 {
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+label {
+  position: relative;
+  left: 30px;
+}
+input.new {
+  position: absolute;
+  left: 30px;
+}
+
+#add {
+  position; absolute;
+  left: 30px;
+}
+
+button.add-to-do {
+  position: absolute;
+  left: 350px;
+  top: 10px;
+}

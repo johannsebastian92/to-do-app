@@ -2,20 +2,39 @@
 <html>
   <head>
     <title>To-Do App</title>
+     <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!--Roboto font -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+    <!--Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
+  <div class="project mdl-cell mdl-card mdl-shadow--6dp" style="width:500px" >
+    <div class="mdl-card__title"> <!-- Turns the h1 into the title of the card-->
     <h1>To-Do App</h1>
+    </div>
     <!-- id attribute used for styling CSS/JS -->
     <form id="addToDoForm">
-      <!-- the "for" attribute specifies which form element a lable is bound to -->
-      <label for="newToDoText">New to-do:</label>
-      <input type="text" id="newToDoText">
-      <button type="submit">Add to-do!</button>
+      <div class="mdl-card__title-text">
+        <label class="new-to-do" for="newToDoText">New to-do:</label> <!-- the "for" attribute specifies which form element a lable is bound to -->
+      </div>
+      <!-- Styling text input -->
+      <div class="mdl-textfield mdl-js-textfield">
+      <input class="new mdl-textfield__input" type="text" id="newToDoText">
+      <label class="mdl-textfield__label" id="add">Add...</label>
+      <button class="add-to-do mdl-button mdl-js-button mdl-button--raised" type="submit">Add to-do!</button>
+      </div>
     </form>
 
-    <ul id="toDoList"><ul>
-
+    <div class="mdl-card__supporting-text">
+      <ul id="toDoList"><ul>
+    </div>
+</div>
     <script src="app.js"></script>
-
   </body>
 </html>
