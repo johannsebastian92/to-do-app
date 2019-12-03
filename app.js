@@ -5,23 +5,24 @@ function onReady () {
 
   // Called when we create a new todo item and when onReady is called
   function renderTheUI(){
-    const toDoList = document.getElementById('toDoList');
+      const toDoList = document.getElementById('toDoList');
 
-    toDoList.textContent = ''; // Clears the text input
+      toDoList.textContent = ''; // Clears the text input
 
-    toDos.forEach(function(toDo){
-      const newLi = document.createElement('li');
-      const checkbox = document.createElement('input');
-      checkbox.type = "checkbox";
+      toDos.forEach(function(toDo){
+        const newLi = document.createElement('li');
+        const checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
 
       // True/false depending on state of checkbox
       checkbox.addEventListener('click', function(){
-        toDo.complete = if (checkbox.checked){
+        if (checkbox.checked){
           return true;
-        } else {
-          return false;
-        }
-    });
+          } else {
+            return false;
+          }
+      });
+
       //Creates the delete button
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = "Delete";
@@ -31,6 +32,15 @@ function onReady () {
           return item.id !== toDo.id;
       });
         renderTheUI();
+
+        // Turns toDos array into a string and stores it
+        const stringToDos = JSON.stringify(toDos));
+        localStorage.setItem("key", stringToDos);
+
+        // Retrieves the string and turns it back into an object
+        const retrievedToDos = localStorage.getItem(stringToDos);
+        const parseToDos = JSON.parse(retrievedToDos);
+
       });
 
       newLi.textContent = toDo.title;
@@ -52,10 +62,11 @@ function onReady () {
       id: id
   });
 
-  id++;
+    id++;
 
-  newToDoText.value = ''; // Empties the text input field
-  renderTheUI();
+    newToDoText.value = ''; // Empties the text input field
+
+    renderTheUI();
 }
 
   // This will prevent refreshing and call the createNewToDo function
@@ -65,7 +76,7 @@ function onReady () {
 });
 
   renderTheUI();
-}
+};
 
 window.onload = function () {
   onReady();
