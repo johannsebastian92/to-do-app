@@ -62,7 +62,7 @@ function onReady () {
 
   // localStorage
   function saveToDos(){
-  localStorage.setItem = ('key', JSON.stringify(toDos));
+  localStorage.setItem('key', JSON.stringify(toDos));
 }
   saveToDos();
 
