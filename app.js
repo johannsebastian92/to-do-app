@@ -9,6 +9,8 @@ function onReady () {
 
       toDoList.textContent = ''; // Clears the text input
 
+      toDos = (JSON.parse(localStorage.getItem('key')) != null ? JSON.parse(localStorage.getItem('key')) : []);
+
       toDos.forEach(function(toDo){
         const newLi = document.createElement('li');
         const checkbox = document.createElement('input');
@@ -16,11 +18,7 @@ function onReady () {
 
       // True/false depending on state of checkbox
       checkbox.addEventListener('click', function(){
-        if (checkbox.checked){
-          return true;
-          } else {
-            return false;
-          }
+      return checkbox.checked
       });
 
       //Creates the delete button
@@ -31,7 +29,8 @@ function onReady () {
         toDos = toDos.filter(function(item){
           return item.id !== toDo.id;
       });
-        renderTheUI();
+      saveToDos(); // Placed here because whenever toDos data is updated
+      renderTheUI();
       });
 
       newLi.textContent = toDo.title;
@@ -53,6 +52,8 @@ function onReady () {
       id: id
   });
 
+  saveToDos();
+
     id++;
 
     newToDoText.value = ''; // Empties the text input field
@@ -60,18 +61,16 @@ function onReady () {
     renderTheUI();
 }
 
-  // localStorage
+  // Stores to-do items into localStorage
   function saveToDos(){
   localStorage.setItem('key', JSON.stringify(toDos));
 }
-  saveToDos();
 
   // This will prevent refreshing and call the createNewToDo function
   addToDoForm.addEventListener('submit', event => {
       event.preventDefault();
       createNewToDo();
 });
-
   renderTheUI();
 };
 
