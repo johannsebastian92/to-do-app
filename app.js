@@ -32,15 +32,6 @@ function onReady () {
           return item.id !== toDo.id;
       });
         renderTheUI();
-
-        // Turns toDos array into a string and stores it
-        const stringToDos = JSON.stringify(toDos);
-        localStorage.setItem("key", stringToDos);
-
-        // Retrieves the string and turns it back into an object
-        const retrievedToDos = localStorage.getItem(stringToDos);
-        const parseToDos = JSON.parse(retrievedToDos);
-
       });
 
       newLi.textContent = toDo.title;
