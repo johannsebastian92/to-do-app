@@ -34,7 +34,7 @@ function onReady () {
         renderTheUI();
 
         // Turns toDos array into a string and stores it
-        const stringToDos = JSON.stringify(toDos));
+        const stringToDos = JSON.stringify(toDos);
         localStorage.setItem("key", stringToDos);
 
         // Retrieves the string and turns it back into an object
@@ -68,6 +68,12 @@ function onReady () {
 
     renderTheUI();
 }
+
+  // localStorage
+  function saveToDos(){
+  localStorage.setItem = ('key', JSON.stringify(toDos));
+}
+  saveToDos();
 
   // This will prevent refreshing and call the createNewToDo function
   addToDoForm.addEventListener('submit', event => {
