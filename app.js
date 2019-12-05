@@ -29,7 +29,7 @@ function onReady () {
         toDos = toDos.filter(function(item){
           return item.id !== toDo.id;
       });
-      saveToDos(); // Placed here because whenever toDos data is updated
+      saveToDos();
       renderTheUI();
       });
 
@@ -52,7 +52,7 @@ function onReady () {
       id: id
   });
 
-  saveToDos();
+    saveToDos();
 
     id++;
 
@@ -61,7 +61,7 @@ function onReady () {
     renderTheUI();
 }
 
-  // Stores to-do items into localStorage
+  // localStorage
   function saveToDos(){
   localStorage.setItem('key', JSON.stringify(toDos));
 }
@@ -71,6 +71,7 @@ function onReady () {
       event.preventDefault();
       createNewToDo();
 });
+
   renderTheUI();
 };
 
